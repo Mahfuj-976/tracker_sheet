@@ -13,7 +13,7 @@ class SecondScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 100,
+              height: 200,
               width: 200,
               color: Colors.green,
               alignment: Alignment.center,
@@ -26,7 +26,7 @@ class SecondScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // 🔙 Go back to the first screen
+                Navigator.pop(context);
               },
               child: Text('Back to First Screen'),
             ),
