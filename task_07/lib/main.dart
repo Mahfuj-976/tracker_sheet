@@ -11,28 +11,56 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MaterialApp & Scaffold Demo',
-      theme: ThemeData(primarySwatch: Colors.teal),
-      home: const HomePage(),
+      title: "local image",
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const LocalImage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class LocalImage extends StatelessWidget {
+  const LocalImage({super.key});
 
+  // List of image file names inside assets/images/
+  final List<String> imageList = const [
+    'assets/img1.jpg',
+    'assets/img2.jpg',
+    'assets/img3.jpg',
+    'assets/img4.jpg',
+    'assets/img5.jpg',
+    'assets/img6.jpg',
+    'assets/img7.jpg',
+  ];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Welcome!'), centerTitle: true),
-
-      body: const Center(
-        child: Text('Hello, Flutter!', style: TextStyle(fontSize: 30)),
+      appBar: AppBar(
+        title: const Text("My Gallery"),
+        centerTitle: true,
+        backgroundColor: Colors.green,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // You can define what happens when the button is pressed
-        },
-        child: const Icon(Icons.add),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          itemCount: imageList.length,
+          gridDelegate:
+              const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: 1,
+              ),
+          itemBuilder: (context, index) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                imageList[index],
+                fit: BoxFit.cover,
+              ),
+            );
+          },
+        ),
       ),
     );
   }
