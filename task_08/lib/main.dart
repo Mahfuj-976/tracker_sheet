@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Navigation Drawer App',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: HomeScreen(),
@@ -23,7 +24,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
+      appBar: AppBar(
+        title: Text('Home Screen'),
+        backgroundColor: Colors.green,
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -32,43 +36,66 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(color: Colors.blue),
               child: Text(
                 'Navigation Drawer',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
             ),
             ListTile(
-              title: Text('Screen 1'),
+              title: Text('History'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Screen1()),
+                  MaterialPageRoute(
+                    builder: (context) => Screen1(),
+                  ),
                 );
               },
             ),
             ListTile(
-              title: Text('Screen 2'),
+              title: Text('Contact'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Screen2()),
+                  MaterialPageRoute(
+                    builder: (context) => Screen2(),
+                  ),
                 );
               },
             ),
             ListTile(
-              title: Text('Screen 3'),
+              title: Text('About'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Screen3()),
+                  MaterialPageRoute(
+                    builder: (context) => Screen3(),
+                  ),
                 );
               },
             ),
           ],
         ),
       ),
-      body: Center(child: Text('Home Screen Content')),
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: Colors.blueGrey),
+          child: Text(
+            'Home Screen Content',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -79,8 +106,25 @@ class Screen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Screen 1')),
-      body: Center(child: Text('Screen 1 Content')),
+      appBar: AppBar(
+        title: Text('History'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: Colors.blueGrey),
+          child: Text(
+            'It is History screen',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -91,8 +135,25 @@ class Screen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Screen 2')),
-      body: Center(child: Text('Screen 2 Content')),
+      appBar: AppBar(
+        title: Text('Contact'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: Colors.blueGrey),
+          child: Text(
+            'It is Contact Screen',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -102,8 +163,25 @@ class Screen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Screen 3')),
-      body: Center(child: Text('Screen 3 Content')),
+      appBar: AppBar(
+        title: Text('About'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: Colors.blueGrey),
+          child: Text(
+            'About Screen',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
